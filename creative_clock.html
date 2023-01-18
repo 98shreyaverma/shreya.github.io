@@ -1,0 +1,114 @@
+
+<html>
+    <head>
+        <style>
+            body{
+                background-color: burlywood;
+                background-image: url(clock.webp);
+                background-position: center;
+                background-blend-mode: lighten;
+                text-align: center;
+            }
+            h1{
+                color: rgb(98, 21, 81);
+                text-decoration: underline;
+                text-align: center;
+                margin-top: 1cm;
+            }
+            div{
+                color: brown;
+                text-align: center;
+            }
+            #info {
+                color: black;
+                text-align: center;
+            }
+            .our_class{
+                color: rgb(129, 21, 62);
+                text-align: center;
+            }
+            .dataviz{
+                color: rgb(98, 21, 81);
+                text-align: center;
+                vertical-align: bottom;
+                font-size: 30px;
+            }
+            .dataviz1{
+                color: darkmagenta;
+                text-align: center;
+                margin-top: 1cm;
+                animation: glow 1s ease-in-out infinite alternate;
+            }
+
+@-webkit-keyframes glow {
+  from {
+    text-shadow: 0 0 10px #fff, 0 0 20px #fff, 0 0 30px #e60073, 0 0 40px #e60073, 0 0 50px #e60073, 0 0 60px #fd0782, 0 0 70px #fd89c3;
+  }
+  
+  to {
+    text-shadow: 0 0 10px #fff, 0 0 20px #ff4da6, 0 0 30px #ff4da6, 0 0 40px #ff4da6, 0 0 50px #cb8bab, 0 0 60px #efc5da, 0 0 70px #ff4da6;
+  }
+            }
+        </style>
+    </head>
+    <body>
+        <div>
+            <br>
+            <h1 style="font-style:italic;">Welcome to Digital Clock</h1>
+            <div id = "info" onload="my_function()"></div>
+        </div>
+    </body>
+</html>
+<script>
+    info = document.getElementById("info")
+    var new_div = document.createElement('h2');
+    new_div.className = 'dataviz';
+    new_div.textContent = "This is Shreya Verma's assignment";
+    new_div.style.fontStyle= "italic";
+    info.appendChild(new_div);
+    
+    var test_div = document.createElement('h2');
+    test_div.className = 'dataviz';
+    test_div.textContent = "UNI: sv2631";
+    test_div.style.fontStyle= "italic";
+    info.appendChild(test_div);
+
+    var new_div1 = document.createElement('div');
+    new_div1.className = 'dataviz1';
+
+    function my_function(){
+        
+    var date = new Date();
+    var h = date.getHours();
+    var m = date.getMinutes();
+    var s = date.getSeconds();
+    var noon = "AM";
+
+    if(h == 0){
+        h = 12;
+    }
+    
+    if(h > 12){
+        h = h - 12;
+        noon = "PM";
+    }
+
+    h = (h < 10) ? "0" + h : h;
+    m = (m < 10) ? "0" + m : m;
+    s = (s < 10) ? "0" + s : s;
+    
+    new_div1.textContent = h + " : " + m + " : " + s + " " + noon
+    new_div1.style.color = "offwhite";
+    new_div1.style.fontSize = "160px";
+
+    info.appendChild(new_div1);
+
+        const new_div = document.createElement('div');
+        let t = setTimeout(function(){ my_function() }, 1000);
+        return new_div
+    }
+
+    my_function();
+
+</script>
+
